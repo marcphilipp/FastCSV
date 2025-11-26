@@ -86,6 +86,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.assertj.core)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("org.junit.platform:junit-platform-reporting") // <1>
 
     "intTestImplementation"(project)
     "intTestImplementation"(libs.jackson.dataformat.yaml)
@@ -97,8 +98,14 @@ dependencies {
     }
 }
 
-tasks.test {
+tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+    jvmArgumentProviders += CommandLineArgumentProvider { // <2>
+        listOf(
+            "-Djunit.platform.reporting.open.xml.enabled=true",
+            "-Djunit.platform.reporting.output.dir=${reports.junitXml.outputLocation.get()}",
+        )
+    }
 }
 
 val intTestTask = tasks.register<Test>("intTest") {
