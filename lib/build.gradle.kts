@@ -104,6 +104,7 @@ tasks.withType<Test>().configureEach {
         listOf(
             "-Djunit.platform.reporting.open.xml.enabled=true",
             "-Djunit.platform.reporting.output.dir=${reports.junitXml.outputLocation.get()}",
+            "-Djunit.platform.reporting.open.xml.git.enabled=true",
         )
     }
 }
