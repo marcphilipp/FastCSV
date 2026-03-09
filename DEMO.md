@@ -7,7 +7,7 @@
 2. Run tests
 
 ```shell
-./gradlew test --rerun intTest --rerun
+./gradlew test --rerun intTest --rerun --continue
 ```
 
 3. Open event-based XML reports:
