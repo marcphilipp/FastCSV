@@ -40,7 +40,7 @@ class BaseCsvCallbackHandlerTest {
             .build(handler, "#foo\n\nbar")
             .iterator();
 
-        assertThat(it.next()).containsExactly("foo");
+        assertThat(it.next()).containsExactly("qux");
         assertThat(handler.getStartingLineNumber()).isOne();
         assertThat(handler.getRecordType()).isEqualTo(RecordType.COMMENT);
         assertThat(handler.getFieldCount()).isOne();
