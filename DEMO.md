@@ -16,7 +16,7 @@
 
 4. Convert to HTML report:
 ```shell
-jbang org.opentest4j.reporting:open-test-reporting-cli:0.2.5:standalone \
+jbang org.opentest4j.reporting:open-test-reporting-cli:0.2.7:standalone \
   html-report \
   --output lib/build/reports/open-test-report.html \
   lib/build/test-results/test/open-test-report.xml \
